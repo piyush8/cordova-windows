@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="aemm-plugin-user"
+    version="1.3.0">
+    <name>AEMM User Plugin</name>
+    <description>AEMM User Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,user,aem,aemm,aemmobile</keywords>
+    <repo>https://github.com/adobe-marketing-cloud-mobile/aemm-plugin-user.git</repo>
+
+	<js-module src="www/CQMUserError.js" name="cq.mobile.userError">
+		<clobbers target="cq.mobile.userError" />
+	</js-module>
+
+	<js-module src="www/CQMUser.js" name="cq.mobile.user">
+		<clobbers target="cq.mobile.user" />
+	</js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CQMUser">
+                <param name="ios-package" value="CQMUser"/>
+            </feature>
+        </config-file>
+    </platform>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CQMUser">
+                <param name="android-package" value="com.adobe.dps.viewer.extensibility.user.CQMUser"/>
+            </feature>
+        </config-file>
+    </platform>
+
+    <!-- windows -->
+    <platform name="windows">
+        <js-module src="src/windows/CQMUserProxy.js" name="CQMUserProxy">
+            <runs />
+        </js-module>
+    </platform>
+</plugin>
